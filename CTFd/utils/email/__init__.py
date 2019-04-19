@@ -58,6 +58,6 @@ def check_email_is_whitelisted(email_address):
     domain_whitelist = get_config('domain_whitelist')
     if domain_whitelist:
         domain_whitelist = [d.strip() for d in domain_whitelist.split(',')]
-        if domain not in domain_whitelist:
+        if email_address not in domain_whitelist:
             return False
     return True

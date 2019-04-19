@@ -21,6 +21,5 @@ RUN for d in CTFd/plugins/*; do \
 RUN chmod +x /opt/CTFd/docker-entrypoint.sh
 RUN chown -R 1001:1001 /opt/CTFd
 
-USER 1001
 EXPOSE 8000
 ENTRYPOINT ["/opt/CTFd/docker-entrypoint.sh"]
