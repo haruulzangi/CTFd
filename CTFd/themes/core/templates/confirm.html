@@ -30,13 +30,13 @@
 				{% endfor %}
 				{% if user %}
 				<h3 class="text-center">
-					We've sent a confirmation email to {{ user.email }}
+					Таны {{ user.email }} хаягт бүртгэлийг баталгаажуулах холбоос явууллаа.
 				</h3>
 
 				<br>
 
 				<h4 class="text-center">
-					Please click the link in that email to confirm your account.
+					Имэйл хаягаа шалгана уу. Имэйл ирээгүй бол спам хавтас шалгана уу.
 				</h4>
 				{% endif %}
 
@@ -45,10 +45,10 @@
 				{% if name %}
 				<form method="POST" action="{{ url_for('auth.confirm') }}">
 					<h4 class="text-center">
-						Need to resend the confirmation email?
+						Имэйл дахин илгээх үү?
 					</h4>
 					<div class="col-md-12 text-center">
-						<button type="submit" id="submit" tabindex="5" class="btn btn-md btn-primary btn-outlined">Resend</button>
+						<button type="submit" id="submit" tabindex="5" class="btn btn-md btn-primary btn-outlined">Дахин илгээх</button>
 					</div>
 					<input type="hidden" name="nonce" value="{{ nonce }}">
 				</form>

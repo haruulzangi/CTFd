@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from flask import request, redirect, url_for, abort, jsonify
 from CTFd.utils import config, get_config
 from CTFd.cache import cache
@@ -27,7 +28,7 @@ def during_ctf_time_only(f):
                     error = '{} has ended'.format(config.ctf_name())
                     abort(403, description=error)
             if ctf_started() is False:
-                error = '{} has not started yet'.format(config.ctf_name())
+                error = u'Амжилттай нэвтэрлээ! {} тэмцээний эхлэх цаг болоогүй тул та эхлэх цагтаа дахин нэвтэрч үзнэ үү'.format(config.ctf_name())
                 abort(403, description=error)
 
     return during_ctf_time_only_wrapper

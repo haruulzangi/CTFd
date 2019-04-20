@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from flask import (
     current_app as app,
     render_template,
@@ -147,9 +148,7 @@ def register():
             errors.append("Please enter a valid email address")
         if email.check_email_is_whitelisted(email_address) is False:
             errors.append(
-                "Only email addresses under {domains} may register".format(
-                    domains=get_config('domain_whitelist')
-                )
+                u"Урьдчилсан бүртгэлийн дагуу зөвхөн бүртгүүлнэ үү."
             )
         if names:
             errors.append('That user name is already taken')

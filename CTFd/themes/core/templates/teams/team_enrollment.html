@@ -12,23 +12,15 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 offset-md-3 text-center">
-				<p>Welcome to {{ get_ctf_name() }}!</p>
+				<p>{{ get_ctf_name() }} тэмцээнд тавтай морилно уу!</p>
 				<p>
-					In order to participate you must either join or create a team.
+					Тэмцээнд оролцохын тулд та өөрийн багыг үүсгэнэ үү.	
 				</p>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-6 offset-md-3 text-center">
-				<a class="btn btn-primary w-100" href="{{ url_for('auth.oauth_login') }}">Play with Official Team</a>
-			</div>
-		</div>
-		<div class="row pt-3">
-			<div class="col-md-3 offset-md-3 text-center">
-				<a class="btn btn-light w-100" href="{{ url_for('teams.join') }}">Join Unofficial Team</a>
-			</div>
-			<div class="col-md-3 text-center">
-				<a class="btn btn-light w-100" href="{{ url_for('teams.new') }}">Create Unofficial Team</a>
+				<a class="btn btn-blue btn-success w-100" href="{{ url_for('teams.new') }}">Баг үүсгэх</a>
 			</div>
 		</div>
 	</div>
