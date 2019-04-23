@@ -7,6 +7,7 @@ from flask import (
     url_for,
     session,
     Blueprint,
+	abort,
 )
 from itsdangerous.exc import BadTimeSignature, SignatureExpired, BadSignature
 
@@ -17,6 +18,7 @@ from CTFd.utils.decorators import ratelimit
 from CTFd.utils import user as current_user
 from CTFd.utils import config, validators
 from CTFd.utils import email
+from CTFd.utils.user import get_ip
 from CTFd.utils.security.auth import login_user, logout_user
 from CTFd.utils.crypto import verify_password
 from CTFd.utils.logging import log
@@ -206,6 +208,11 @@ def register():
 @auth.route('/login', methods=['POST', 'GET'])
 @ratelimit(method="POST", limit=10, interval=5)
 def login():
+    ip_whitelist = ['43.228.130.144']
+
+    if get_ip() not in ip_whitelist:
+        return abort(403)
+
     errors = get_errors()
     if request.method == 'POST':
         name = request.form['name']
