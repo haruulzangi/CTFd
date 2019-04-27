@@ -208,7 +208,7 @@ def register():
 @auth.route('/login', methods=['POST', 'GET'])
 @ratelimit(method="POST", limit=10, interval=5)
 def login():
-    ip_whitelist = ['43.228.130.144']
+    ip_whitelist = ['43.228.130.144', '192.82.65.61']
 
     if get_ip() not in ip_whitelist:
         return abort(403)
